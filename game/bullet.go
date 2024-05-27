@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	bulletSpeedPerSecond = 350.0
+	bulletSpeedPerSecond = 700.0
 )
 
 type Bullet struct {

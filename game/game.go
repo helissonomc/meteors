@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	screenWidth  = 800
-	screenHeight = 600
+	screenWidth  = 1200
+	screenHeight = 800
 
 	meteorSpawnTime = 1 * time.Second
 
@@ -56,15 +56,17 @@ func (g *Game) Update() error {
 	g.player.Update()
 
 	g.meteorSpawnTimer.Update()
-	if g.meteorSpawnTimer.IsReady() {
+	if g.meteorSpawnTimer.IsReady() && !g.player.freezeMeteor {
 		g.meteorSpawnTimer.Reset()
 
 		m := NewMeteor(g.baseVelocity)
 		g.meteors = append(g.meteors, m)
 	}
 
-	for _, m := range g.meteors {
-		m.Update()
+	if !g.player.freezeMeteor {
+		for _, m := range g.meteors {
+			m.Update()
+		}
 	}
 
 	for _, b := range g.bullets {

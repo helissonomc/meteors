@@ -18,6 +18,7 @@ var PlayerSprite = mustLoadImage("player.png")
 var MeteorSprites = mustLoadImages("meteors/*.png")
 var LaserSprite = mustLoadImage("laser.png")
 var ScoreFont = mustLoadFont("font.ttf")
+var FireSprite = mustLoadImage("fire.png")
 
 func mustLoadImage(name string) *ebiten.Image {
 	f, err := assets.Open(name)
